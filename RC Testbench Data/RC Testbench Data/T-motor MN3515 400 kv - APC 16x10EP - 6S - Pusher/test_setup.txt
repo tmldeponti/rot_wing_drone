@@ -1,0 +1,7 @@
+Motor: T-motor MN3515 400 kv
+Kv: 400
+Propeller: APC 16x10 EP
+Diameter: 16
+Pitch: 10
+Battery: 6S
+Config: pusher
