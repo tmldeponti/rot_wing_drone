@@ -20,6 +20,9 @@ if debug
     title('figure 2')
     grid on
     grid minor
+    xlabel('Time [s]')
+    ylabel('Thrust [N]')
+    legend('RC BenchMark','Balance Wind Tunnel','Location','northwest')
 end
 end
 
