@@ -1,0 +1,261 @@
+<!DOCTYPE flight_plan SYSTEM "../flight_plan.dtd">
+
+<flight_plan alt="1.5" ground_alt="0" lat0="51.990634" lon0="4.376789" max_dist_from_home="20" name="RotWingDrone Cyberzoo (Delft) no GPS" security_height="0.3">
+  <header>
+#include "autopilot.h"
+#include "modules/system_identification/sys_id_doublet.h"
+#include "modules/system_identification/pprz_doublet.h"
+#include "modules/system_identification/sys_id_chirp.h"
+#include "modules/system_identification/pprz_chirp.h"
+#include "modules/rot_wing_drone/wing_rotation_controller.h"
+</header>
+  <waypoints>
+    <waypoint name="HOME" x="0.0" y="0.0"/>
+    <waypoint name="CLIMB" x="1.2" y="-0.6"/>
+    <waypoint name="GOAL" x="2.0" y="2.0"/>
+    <waypoint name="STDBY" x="-0.7" y="-0.8"/>
+    <waypoint name="TD" x="0.8" y="-1.7"/>
+    <waypoint lat="51.990630" lon="4.376823" name="p1"/>
+    <waypoint lat="51.990614" lon="4.376779" name="p2"/>
+    <waypoint lat="51.990636" lon="4.376759" name="p3"/>
+    <waypoint lat="51.990651" lon="4.376805" name="p4"/>
+    <waypoint lat="51.9906213" lon="4.3768628" name="FA1"/>
+    <waypoint lat="51.9905874" lon="4.3767766" name="FA2"/>
+    <waypoint lat="51.9906409" lon="4.3767226" name="FA3"/>
+    <waypoint lat="51.9906737" lon="4.3768074" name="FA4"/>
+  </waypoints>
+  <sectors>
+    <sector color="red" name="Flight_Area">
+      <corner name="FA4"/>
+      <corner name="FA3"/>
+      <corner name="FA2"/>
+      <corner name="FA1"/>
+    </sector>
+  </sectors>
+  <blocks>
+    <block name="Holding point">
+      <call_once fun="NavKillThrottle()"/>
+      <attitude pitch="0" roll="0" throttle="0" until="FALSE" vmode="throttle"/>
+    </block>
+    <block name="Start Engine">
+      <call_once fun="NavResurrect()"/>
+      <attitude pitch="0" roll="0" throttle="0" until="FALSE" vmode="throttle"/>
+    </block>
+    <block name="Takeoff" strip_button="Takeoff" strip_icon="takeoff.png">
+      <exception cond="GetPosHeight() @GT 1.0" deroute="Standby"/>
+      <call_once fun="NavSetWaypointHere(WP_CLIMB)"/>
+      <stay climb="nav_climb_vspeed" vmode="climb" wp="CLIMB"/>
+    </block>
+    <block name="Standby" strip_button="Standby" strip_icon="home.png">
+      <stay wp="STDBY"/>
+    </block>
+    <block name="Rotating wing0">
+      <set var="wing_rotation.wing_angle_deg_sp" value="0.0"/>
+    </block> 
+    <block name="Wait for wing0">
+      <while cond="LessThan(NavBlockTime(),5)"/>
+    </block> 
+    <block name="Doublet1" >
+      <call_once fun="sys_id_doublet_set_param(240.0,1.0,0)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down1" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet2" >
+      <call_once fun="sys_id_doublet_set_param(300.0,0.7,0)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down2" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet3" >
+      <call_once fun="sys_id_doublet_set_param(70.0,1.0,1)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down3" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet4" >
+      <call_once fun="sys_id_doublet_set_param(90.0,0.7,1)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down4" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet5" >
+      <call_once fun="sys_id_doublet_set_param(240.0,1.0,2)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down5" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet6" >
+      <call_once fun="sys_id_doublet_set_param(300.0,0.7,2)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down6" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet7" >
+      <call_once fun="sys_id_doublet_set_param(70.0,1.0,3)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down7" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet8" >
+      <call_once fun="sys_id_doublet_set_param(90.0,0.7,3)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down8" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Chirp1" >
+      <call_once fun="sys_id_chirp_set_param(0.1,10.0,1.0,3.5,0.0,0.0,0)"/>
+      <set var="chirp_active" value="1"/>
+      <call_once fun="sys_id_chirp_activate_handler(chirp_active)"/> 
+    </block>
+    <block name="Cool Down Chirp1" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),15)"/>
+    </block>
+    <block name="Chirp2" >
+      <call_once fun="sys_id_chirp_set_param(0.1,10.0,1.0,3.5,0.0,0.0,1)"/>
+      <set var="chirp_active" value="1"/>
+      <call_once fun="sys_id_chirp_activate_handler(chirp_active)"/> 
+    </block>
+    <block name="Cool Down Chirp2" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),15)"/>
+    </block>
+    <block name="Rotating wing20">
+      <set var="wing_rotation.wing_angle_deg_sp" value="20.0"/>
+    </block> 
+    <block name="Wait for wing20">
+      <while cond="LessThan(NavBlockTime(),5)"/>
+    </block> 
+    <block name="Doublet9" >
+      <call_once fun="sys_id_doublet_set_param(240.0,1.0,0)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down9" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet10" >
+      <call_once fun="sys_id_doublet_set_param(300.0,0.7,0)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down10" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet11" >
+      <call_once fun="sys_id_doublet_set_param(70.0,1.0,1)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down11" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet12" >
+      <call_once fun="sys_id_doublet_set_param(90.0,0.7,1)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down12" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet13" >
+      <call_once fun="sys_id_doublet_set_param(240.0,1.0,2)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down13" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet14" >
+      <call_once fun="sys_id_doublet_set_param(300.0,0.7,2)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down14" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet15" >
+      <call_once fun="sys_id_doublet_set_param(70.0,1.0,3)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down15" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet16" >
+      <call_once fun="sys_id_doublet_set_param(90.0,0.7,3)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down16" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Chirp3" >
+      <call_once fun="sys_id_chirp_set_param(0.1,10.0,1.0,3.5,0.0,0.0,0)"/>
+      <set var="chirp_active" value="1"/>
+      <call_once fun="sys_id_chirp_activate_handler(chirp_active)"/> 
+    </block>
+    <block name="Cool Down Chirp3" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),15)"/>
+    </block>
+    <block name="Chirp4" >
+      <call_once fun="sys_id_chirp_set_param(0.1,10.0,1.0,3.5,0.0,0.0,1)"/>
+      <set var="chirp_active" value="1"/>
+      <call_once fun="sys_id_chirp_activate_handler(chirp_active)"/> 
+    </block>
+    <block name="Cool Down Chirp4" >
+      <go wp="STDBY"/>
+      <exception cond="LessThan(NavBlockTime(),15)" deroute="Standby"/>
+    </block>
+    <block name="land here" strip_button="Land Here" strip_icon="land-right.png">
+      <call_once fun="NavSetWaypointHere(WP_TD)"/>
+    </block>
+    <block name="land">
+      <go wp="TD"/>
+    </block>
+    <block name="flare">
+      <exception cond="NavDetectGround()" deroute="Holding point"/>
+      <exception cond="!nav_is_in_flight()" deroute="landed"/>
+      <call_once fun="NavStartDetectGround()"/>
+      <stay climb="nav_descend_vspeed" vmode="climb" wp="TD"/>
+    </block>
+    <block name="landed">
+      <call_once fun="NavKillThrottle()"/>
+      <attitude pitch="0" roll="0" throttle="0" until="FALSE" vmode="throttle"/>
+    </block>
+  </blocks>
+</flight_plan>
