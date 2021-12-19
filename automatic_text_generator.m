@@ -6,12 +6,12 @@ tline = fgetl(fileID_2);
 limit_h = 52;
 actuator_axes = 3;%7
 control_axes  = 1;%2;
-doublet_amp   = [240, 300; 70, 90];%[100,200,300; 50, 100, 150];
+doublet_amp   = [110, 160; 40, 50];%[100,200,300; 50, 100, 150];
 doublet_t     = [1.0, 0.7; 1.0, 0.7];
-chirp_amp     = 0.15;
-chirp_t       = 10;
-chirp_fs      = 1;
-chirp_fe      = 3.5;
+chirp_amp     = 0.08;
+chirp_t       = 15;
+chirp_fs      = 0.2;
+chirp_fe      = 0.8;
 chirp_n_on    = 0;
 chirp_n_off   = 0;
 cd_t          = 5;
@@ -27,16 +27,17 @@ while ischar(tline)
       for k=1:size(wing_sp,2)
           line_10 = strcat('    <block name="Rotating wing ', num2str(wing_sp(k),'%.0f'),'">');
           line_11 = strcat('      <set var="wing_rotation.wing_angle_deg_sp" value="',num2str(wing_sp(k),'%.1f'),'"/>');
-          line_12 = '    </block> ';
+          line_12 = '    </block>';
           fprintf(fileID_1,'%s\r\n',line_10);
           fprintf(fileID_1,'%s\r\n',line_11);
           fprintf(fileID_1,'%s\r\n',line_12);
           
           line_13 = strcat('    <block name="Wait for wing ', num2str(wing_sp(k),'%.0f'),'">');
           line_14 = strcat('      <while cond="LessThan(NavBlockTime(),',num2str(round(cd_t)),')"/>');%'      <exception cond="stage_time>2" deroute="Standby"/>';
+          line_15 = '    </block>';
           fprintf(fileID_1,'%s\r\n',line_13);
           fprintf(fileID_1,'%s\r\n',line_14);
-          fprintf(fileID_1,'%s\r\n',line_12);
+          fprintf(fileID_1,'%s\r\n',line_15);
           for i=0:actuator_axes
               rep = 0;
               for j=1:size(doublet_amp,2)
@@ -77,7 +78,7 @@ while ischar(tline)
               fprintf(fileID_1,'%s\r\n',string);
               char_3 = '      <call_once fun="sys_id_chirp_set_param(';
               char_4 = ')"/>';
-              string = strcat(char_3,num2str(chirp_amp,'%.1f'),',',num2str(chirp_t,'%.1f'),',',num2str(chirp_fs,'%.1f'),',',num2str(chirp_fe,'%.1f'),',',num2str(chirp_n_on,'%.1f'),',',num2str(chirp_n_off,'%.1f'),',',num2str(i),char_4);
+              string = strcat(char_3,num2str(chirp_amp,'%.2f'),',',num2str(chirp_t,'%.1f'),',',num2str(i),',',num2str(chirp_fs,'%.1f'),',',num2str(chirp_fe,'%.1f'),',',num2str(chirp_n_on,'%.1f'),',',num2str(chirp_n_off,'%.1f'),char_4);
               fprintf(fileID_1,'%s\r\n',string);
               line_0 = '      <set var="chirp_active" value="1"/>';
               line_1 = '      <call_once fun="sys_id_chirp_activate_handler(chirp_active)"/> ';
