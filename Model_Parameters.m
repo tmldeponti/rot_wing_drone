@@ -37,6 +37,16 @@ Gn_inv(phi,theta,psi) = simplify(Gn.'*(Gn*Gn.')^-1);
 %matlabFunctionBlock('Quad_model/Gn_calculator/Gn', Gn); %global Gn; and redo linking of globlal variable
 %% 
 %s = tf('s');
+%%
+syms u1 u2 u3 u4
+Wv = [100, 0, 0, 0; 0, 1000, 0, 0; 0, 0, 1000, 0; 0, 0, 0, 1 ];
+Wu = [1, 0, 0, 0; 0, 1, 0, 0; 0, 0, 1, 0; 0, 0, 0, 1];
+gamma = 10000;
+virtual = [1,1,1,1].';
+ud = [300, 300, 300, 300].';
+A = [gamma .* Wv .* (G_1+G_2) ; Wu];
+b = [gamma .* Wv * virtual ; Wu * ud];
+C = norm(A * [u1,u2,u3,u4].'-b)^2
 %% Remove Filtering if needed
 H_z_den = [1];
 H_z_num = [1];
