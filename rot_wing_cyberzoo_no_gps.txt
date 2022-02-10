@@ -49,13 +49,13 @@
     <block name="Standby" strip_button="Standby" strip_icon="home.png">
       <stay wp="STDBY"/>
     </block>
-    <block name="Rotating wing0">
-      <set var="wing_rotation.wing_angle_deg_sp" value="0.0"/>
+    <block name="Rotating wing40">
+      <set var="wing_rotation.wing_angle_deg_sp" value="40.0"/>
     </block>
-    <block name="Wait for wing0">
+    <block name="Wait for wing40">
       <while cond="LessThan(NavBlockTime(),5)"/>
     </block>
-    <block name="Doublet1" >
+    <block name="Doublet1 Motor Front" >
       <call_once fun="sys_id_doublet_set_param(110.0,1.0,0)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
@@ -64,7 +64,7 @@
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet2" >
+    <block name="Doublet2 Motor Front" >
       <call_once fun="sys_id_doublet_set_param(160.0,0.7,0)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
@@ -73,7 +73,7 @@
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet3" >
+    <block name="Doublet3 Motor Right" >
       <call_once fun="sys_id_doublet_set_param(40.0,1.0,1)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
@@ -82,7 +82,7 @@
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet4" >
+    <block name="Doublet4 Motor Right" >
       <call_once fun="sys_id_doublet_set_param(50.0,0.7,1)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
@@ -91,7 +91,7 @@
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet5" >
+    <block name="Doublet5 Motor Back" >
       <call_once fun="sys_id_doublet_set_param(110.0,1.0,2)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
@@ -100,7 +100,7 @@
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet6" >
+    <block name="Doublet6 Motor Back" >
       <call_once fun="sys_id_doublet_set_param(160.0,0.7,2)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
@@ -109,7 +109,7 @@
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet7" >
+    <block name="Doublet7 Motor Left" >
       <call_once fun="sys_id_doublet_set_param(40.0,1.0,3)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
@@ -118,7 +118,7 @@
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet8" >
+    <block name="Doublet8 Motor Left" >
       <call_once fun="sys_id_doublet_set_param(50.0,0.7,3)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
@@ -127,8 +127,80 @@
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
+    <block name="Doublet9 Aileron Left" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,4)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down9" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet10 Aileron Left" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,4)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down10" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet11 Aileron Right" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,5)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down11" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet12 Aileron Right" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,5)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down12" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet13 Elevator" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,6)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down13" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet14 Elevator" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,6)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down14" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet15 Rudder" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,7)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down15" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet16 Rudder" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,7)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down16" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
     <block name="Chirp1" >
-      <call_once fun="sys_id_chirp_set_param(0.08,15.0,0,0.2,0.8,0.0,0.0)"/>
+      <call_once fun="sys_id_chirp_set_param(0.04,15.0,0,0.4,0.8,0.0,0.0)"/>
       <set var="chirp_active" value="1"/>
       <call_once fun="sys_id_chirp_activate_handler(chirp_active)"/> 
     </block>
@@ -137,7 +209,7 @@
       <while cond="LessThan(NavBlockTime(),20)"/>
     </block>
     <block name="Chirp2" >
-      <call_once fun="sys_id_chirp_set_param(0.08,15.0,1,0.2,0.8,0.0,0.0)"/>
+      <call_once fun="sys_id_chirp_set_param(0.04,15.0,1,0.4,0.8,0.0,0.0)"/>
       <set var="chirp_active" value="1"/>
       <call_once fun="sys_id_chirp_activate_handler(chirp_active)"/> 
     </block>
@@ -145,86 +217,158 @@
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),20)"/>
     </block>
-    <block name="Rotating wing20">
-      <set var="wing_rotation.wing_angle_deg_sp" value="20.0"/>
+    <block name="Rotating wing55">
+      <set var="wing_rotation.wing_angle_deg_sp" value="55.0"/>
     </block>
-    <block name="Wait for wing20">
+    <block name="Wait for wing55">
       <while cond="LessThan(NavBlockTime(),5)"/>
     </block>
-    <block name="Doublet9" >
+    <block name="Doublet17 Motor Front" >
       <call_once fun="sys_id_doublet_set_param(110.0,1.0,0)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
     </block>
-    <block name="Cool Down9" >
+    <block name="Cool Down17" >
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet10" >
+    <block name="Doublet18 Motor Front" >
       <call_once fun="sys_id_doublet_set_param(160.0,0.7,0)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
     </block>
-    <block name="Cool Down10" >
+    <block name="Cool Down18" >
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet11" >
+    <block name="Doublet19 Motor Right" >
       <call_once fun="sys_id_doublet_set_param(40.0,1.0,1)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
     </block>
-    <block name="Cool Down11" >
+    <block name="Cool Down19" >
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet12" >
+    <block name="Doublet20 Motor Right" >
       <call_once fun="sys_id_doublet_set_param(50.0,0.7,1)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
     </block>
-    <block name="Cool Down12" >
+    <block name="Cool Down20" >
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet13" >
+    <block name="Doublet21 Motor Back" >
       <call_once fun="sys_id_doublet_set_param(110.0,1.0,2)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
     </block>
-    <block name="Cool Down13" >
+    <block name="Cool Down21" >
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet14" >
+    <block name="Doublet22 Motor Back" >
       <call_once fun="sys_id_doublet_set_param(160.0,0.7,2)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
     </block>
-    <block name="Cool Down14" >
+    <block name="Cool Down22" >
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet15" >
+    <block name="Doublet23 Motor Left" >
       <call_once fun="sys_id_doublet_set_param(40.0,1.0,3)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
     </block>
-    <block name="Cool Down15" >
+    <block name="Cool Down23" >
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Doublet16" >
+    <block name="Doublet24 Motor Left" >
       <call_once fun="sys_id_doublet_set_param(50.0,0.7,3)"/>
       <set var="doublet_active" value="1"/>
       <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
     </block>
-    <block name="Cool Down16" >
+    <block name="Cool Down24" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet25 Aileron Left" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,4)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down25" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet26 Aileron Left" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,4)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down26" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet27 Aileron Right" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,5)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down27" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet28 Aileron Right" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,5)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down28" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet29 Elevator" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,6)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down29" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet30 Elevator" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,6)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down30" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet31 Rudder" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,7)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down31" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet32 Rudder" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,7)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down32" >
       <go wp="STDBY"/>
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
     <block name="Chirp3" >
-      <call_once fun="sys_id_chirp_set_param(0.08,15.0,0,0.2,0.8,0.0,0.0)"/>
+      <call_once fun="sys_id_chirp_set_param(0.04,15.0,0,0.4,0.8,0.0,0.0)"/>
       <set var="chirp_active" value="1"/>
       <call_once fun="sys_id_chirp_activate_handler(chirp_active)"/> 
     </block>
@@ -233,11 +377,179 @@
       <while cond="LessThan(NavBlockTime(),20)"/>
     </block>
     <block name="Chirp4" >
-      <call_once fun="sys_id_chirp_set_param(0.08,15.0,1,0.2,0.8,0.0,0.0)"/>
+      <call_once fun="sys_id_chirp_set_param(0.04,15.0,1,0.4,0.8,0.0,0.0)"/>
       <set var="chirp_active" value="1"/>
       <call_once fun="sys_id_chirp_activate_handler(chirp_active)"/> 
     </block>
     <block name="Cool Down Chirp4" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),20)"/>
+    </block>
+    <block name="Rotating wing70">
+      <set var="wing_rotation.wing_angle_deg_sp" value="70.0"/>
+    </block>
+    <block name="Wait for wing70">
+      <while cond="LessThan(NavBlockTime(),5)"/>
+    </block>
+    <block name="Doublet33 Motor Front" >
+      <call_once fun="sys_id_doublet_set_param(110.0,1.0,0)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down33" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet34 Motor Front" >
+      <call_once fun="sys_id_doublet_set_param(160.0,0.7,0)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down34" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet35 Motor Right" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,1)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down35" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet36 Motor Right" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,1)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down36" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet37 Motor Back" >
+      <call_once fun="sys_id_doublet_set_param(110.0,1.0,2)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down37" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet38 Motor Back" >
+      <call_once fun="sys_id_doublet_set_param(160.0,0.7,2)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down38" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet39 Motor Left" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,3)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down39" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet40 Motor Left" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,3)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down40" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet41 Aileron Left" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,4)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down41" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet42 Aileron Left" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,4)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down42" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet43 Aileron Right" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,5)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down43" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet44 Aileron Right" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,5)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down44" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet45 Elevator" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,6)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down45" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet46 Elevator" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,6)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down46" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet47 Rudder" >
+      <call_once fun="sys_id_doublet_set_param(40.0,1.0,7)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down47" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Doublet48 Rudder" >
+      <call_once fun="sys_id_doublet_set_param(50.0,0.7,7)"/>
+      <set var="doublet_active" value="1"/>
+      <call_once fun="sys_id_doublet_activate_handler(doublet_active)"/> 
+    </block>
+    <block name="Cool Down48" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Chirp5" >
+      <call_once fun="sys_id_chirp_set_param(0.04,15.0,0,0.4,0.8,0.0,0.0)"/>
+      <set var="chirp_active" value="1"/>
+      <call_once fun="sys_id_chirp_activate_handler(chirp_active)"/> 
+    </block>
+    <block name="Cool Down Chirp5" >
+      <go wp="STDBY"/>
+      <while cond="LessThan(NavBlockTime(),20)"/>
+    </block>
+    <block name="Chirp6" >
+      <call_once fun="sys_id_chirp_set_param(0.04,15.0,1,0.4,0.8,0.0,0.0)"/>
+      <set var="chirp_active" value="1"/>
+      <call_once fun="sys_id_chirp_activate_handler(chirp_active)"/> 
+    </block>
+    <block name="Cool Down Chirp6" >
       <go wp="STDBY"/>
       <exception cond="LessThan(NavBlockTime(),20)" deroute="Standby"/>
     </block>
