@@ -15,7 +15,7 @@ chirp_fe      = 0.8;
 chirp_n_on    = 0;
 chirp_n_off   = 0;
 cd_t          = 15;
-wing_sp       = [40,55,70];%linspace(2,20,2);%linspace(0,70,8);
+wing_sp       = [2,30,45];%linspace(2,20,2);%linspace(0,70,8);
 names         = ["Motor Front","Motor Right","Motor Back","Motor Left","Aileron Left", "Aileron Right","Elevator","Rudder"];
 
 
