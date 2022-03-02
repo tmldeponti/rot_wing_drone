@@ -15,6 +15,7 @@ chirp_fe      = 0.8;
 chirp_n_on    = 0;
 chirp_n_off   = 0;
 cd_t          = 15;
+cd_t2          = 5;
 wing_sp       = [2,30,45];%linspace(2,20,2);%linspace(0,70,8);
 names         = ["Motor Front","Motor Right","Motor Back","Motor Left","Aileron Left", "Aileron Right","Elevator","Rudder"];
 
@@ -34,7 +35,7 @@ while ischar(tline)
           fprintf(fileID_1,'%s\r\n',line_12);
           
           line_13 = strcat('    <block name="Wait for wing ', num2str(wing_sp(k),'%.0f'),'">');
-          line_14 = strcat('      <while cond="LessThan(NavBlockTime(),',num2str(round(cd_t)),')"/>');%'      <exception cond="stage_time>2" deroute="Standby"/>';
+          line_14 = strcat('      <while cond="LessThan(NavBlockTime(),',num2str(round(cd_t2)),')"/>');%'      <exception cond="stage_time>2" deroute="Standby"/>';
           line_15 = '    </block>';
           fprintf(fileID_1,'%s\r\n',line_13);
           fprintf(fileID_1,'%s\r\n',line_14);
@@ -66,7 +67,7 @@ while ischar(tline)
                   line_2 = '    </block>';
                   line_3 = strcat('    <block name="Cool Down ',num2str(doublet),'" >');
                   line_4 = '      <go wp="STDBY"/>';
-                  line_5 = strcat('      <while cond="LessThan(NavBlockTime(),',num2str(round(cd_t+doublet_t(r,j),0)),')"/>');%'      <exception cond="stage_time>2" deroute="Standby"/>';
+                  line_5 = strcat('      <while cond="LessThan(NavBlockTime(),',num2str(round(cd_t2+doublet_t(r,j),0)),')"/>');%'      <exception cond="stage_time>2" deroute="Standby"/>';
                   line_6 = '    </block>';
                   fprintf(fileID_1,'%s\r\n',line_0);
                   fprintf(fileID_1,'%s\r\n',line_1);
