@@ -4,10 +4,11 @@ fileID_2 = fopen('model.txt','r');
 count=0;
 tline = fgetl(fileID_2);
 limit_h = 52;
-actuator_axes = 7;%7
+actuator_axes = 3;%7
 control_axes  = 1;%2;
-doublet_amp   = [40, 50; 30, 40; 80 100; 80 100; 80 100];%[100,200,300; 50, 100, 150];
-doublet_t     = [1.0, 0.7; 1.0, 0.7; 1.0 0.7; 1.0 0.7; 1.0 0.7];
+no_chirp = true;
+doublet_amp   = [450, 400, 350; 400, 350, 300; 80 100 100; 80 100 100; 80 100 100];%[100,200,300; 50, 100, 150];
+doublet_t     = [0.4, 0.5, 0.6; 0.4, 0.5, 0.6; 1.0 0.7 0.7; 1.0 0.7 0.7; 1.0 0.7 0.7];
 chirp_amp     = 0.04;
 chirp_t       = 15;
 chirp_fs      = 0.4;
@@ -16,7 +17,7 @@ chirp_n_on    = 0;
 chirp_n_off   = 0;
 cd_t          = 15;
 cd_t2          = 5;
-wing_sp       = [2,30,45];%linspace(2,20,2);%linspace(0,70,8);
+wing_sp       = [2];%linspace(2,20,2);%linspace(0,70,8);
 names         = ["Motor Front","Motor Right","Motor Back","Motor Left","Aileron Left", "Aileron Right","Elevator","Rudder"];
 
 
@@ -67,19 +68,29 @@ while ischar(tline)
                   line_2 = '    </block>';
                   line_3 = strcat('    <block name="Cool Down ',num2str(doublet),'" >');
                   line_4 = '      <go wp="STDBY"/>';
+                  line_4e = '      <stay wp="STDBY"/>';
                   line_5 = strcat('      <while cond="LessThan(NavBlockTime(),',num2str(round(cd_t2+doublet_t(r,j),0)),')"/>');%'      <exception cond="stage_time>2" deroute="Standby"/>';
+                  line_5e= strcat('      <exception cond="MoreThan(NavBlockTime(),',num2str(round(cd_t2+doublet_t(r,j),0)),')" deroute="Standby"/>');
                   line_6 = '    </block>';
                   fprintf(fileID_1,'%s\r\n',line_0);
                   fprintf(fileID_1,'%s\r\n',line_1);
                   fprintf(fileID_1,'%s\r\n',line_2);
                   fprintf(fileID_1,'%s\r\n',line_3);
-                  fprintf(fileID_1,'%s\r\n',line_4);
-                  fprintf(fileID_1,'%s\r\n',line_5);
+                  if no_chirp && (i==actuator_axes) && (j==size(doublet_amp,2))
+                      fprintf(fileID_1,'%s\r\n',line_4e);
+                      fprintf(fileID_1,'%s\r\n',line_5e);
+                  else
+                      fprintf(fileID_1,'%s\r\n',line_4);
+                      fprintf(fileID_1,'%s\r\n',line_5);
+                  end
                   fprintf(fileID_1,'%s\r\n',line_6);
               end
           end
 
           for i=0:control_axes
+              if no_chirp
+                  break
+              end
               chirp=chirp+1;
               char_1 = '    <block name="Chirp';
               char_2 = '" >';
@@ -94,17 +105,19 @@ while ischar(tline)
               line_2 = '    </block>';
               line_3 = strcat('    <block name="Cool Down Chirp ',num2str(chirp),'" >');
               line_4 = '      <go wp="STDBY"/>';
+              line_4e = '      <stay wp="STDBY"/>';
               line_5 = strcat('      <while cond="LessThan(NavBlockTime(),',num2str(round(cd_t+chirp_t,0)),')"/>');
-              line_5e= strcat('      <exception cond="LessThan(NavBlockTime(),',num2str(round(cd_t+chirp_t,0)),')" deroute="Standby"/>');
+              line_5e= strcat('      <exception cond="MoreThan(NavBlockTime(),',num2str(round(cd_t+chirp_t,0)),')" deroute="Standby"/>');
               line_6 = '    </block>';
               fprintf(fileID_1,'%s\r\n',line_0);
               fprintf(fileID_1,'%s\r\n',line_1);
               fprintf(fileID_1,'%s\r\n',line_2);
               fprintf(fileID_1,'%s\r\n',line_3);
-              fprintf(fileID_1,'%s\r\n',line_4);
               if (i==control_axes) && (k==size(wing_sp,2))
+                  fprintf(fileID_1,'%s\r\n',line_4e);
                   fprintf(fileID_1,'%s\r\n',line_5e);
               else
+                  fprintf(fileID_1,'%s\r\n',line_4);
                   fprintf(fileID_1,'%s\r\n',line_5);
               end
               fprintf(fileID_1,'%s\r\n',line_6);        
