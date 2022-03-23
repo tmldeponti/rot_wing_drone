@@ -7,7 +7,7 @@ limit_h = 52;
 actuator_axes = 3;%7
 control_axes  = 1;%2;
 no_chirp = true;
-doublet_amp   = [450, 400, 350; 400, 350, 300; 80 100 100; 80 100 100; 80 100 100];%[100,200,300; 50, 100, 150];
+doublet_amp   = [500, 450, 400; 350, 300, 250; 80 100 100; 80 100 100; 80 100 100];%[100,200,300; 50, 100, 150];
 doublet_t     = [0.4, 0.5, 0.6; 0.4, 0.5, 0.6; 1.0 0.7 0.7; 1.0 0.7 0.7; 1.0 0.7 0.7];
 chirp_amp     = 0.04;
 chirp_t       = 15;
@@ -16,7 +16,7 @@ chirp_fe      = 0.8;
 chirp_n_on    = 0;
 chirp_n_off   = 0;
 cd_t          = 15;
-cd_t2          = 5;
+cd_t2          = 6;
 wing_sp       = [2];%linspace(2,20,2);%linspace(0,70,8);
 names         = ["Motor Front","Motor Right","Motor Back","Motor Left","Aileron Left", "Aileron Right","Elevator","Rudder"];
 

@@ -2,13 +2,13 @@ function [outputArg1] = discrete_filt(x,fc,sf)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 A = tf(fc,[1 fc]);
-A = c2d(A,1/sf)
+A = c2d(A,1/sf);
 max_rate = 10000;
 [num,den] = tfdata(A);
 num = cell2mat(num);
 den = cell2mat(den);
-alpha =  num(end)
-beta = abs(den(end))
+alpha =  num(end);
+beta = abs(den(end));
 
 N = size(x,1);
 M = size(x,2);
