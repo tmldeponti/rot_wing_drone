@@ -10,6 +10,7 @@
 #include "modules/rot_wing_drone/wing_rotation_controller.h"
 #include "firmwares/rotorcraft/navigation.h"
 #include "firmwares/rotorcraft/guidance/guidance_indi_hybrid.h"
+#include "firmwares/rotorcraft/stabilization/stabilization_indi.h"
 </header>
   <waypoints>
     <waypoint name="HOME" x="0.0" y="0.0" height="0.0"/>
@@ -55,39 +56,3304 @@
       <set var="wing_rotation.wing_angle_deg_sp" value="0.0"/>
     </block>
     <block name="Wait for wing0">
+      <while cond="LessThan(NavBlockTime(),10)"/>
+    </block>
+    <block name="Mot status:0 and wing:0 degs ">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+    </block>
+    <block name="Cool down mot status :0 and wing:0 degs ">
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Pitch angle1">
-      <set var="pitch_pref_deg" value="4.0"/>
+    <block name="Excitationas4cmd1ms0w0 degs ">
+      <set var=" ailL_static" value="-9600"/>
     </block>
-    <block name="Cool down angle1">
-      <go wp="STDBY"/>
+    <block name="Cool down as staticas4cmd1ms0w0">
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Pitch angle2">
-      <set var="pitch_pref_deg" value="6.0"/>
+    <block name="Excitationas4cmd2ms0w0 degs ">
+      <set var=" ailL_static" value="-4800"/>
     </block>
-    <block name="Cool down angle2">
-      <go wp="STDBY"/>
+    <block name="Cool down as staticas4cmd2ms0w0">
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Pitch angle3">
-      <set var="pitch_pref_deg" value="8.0"/>
+    <block name="Excitationas4cmd3ms0w0 degs ">
+      <set var=" ailL_static" value="1920"/>
     </block>
-    <block name="Cool down angle3">
-      <go wp="STDBY"/>
+    <block name="Cool down as staticas4cmd3ms0w0">
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Pitch angle4">
-      <set var="pitch_pref_deg" value="10.0"/>
+    <block name="Excitationas4cmd4ms0w0 degs ">
+      <set var=" ailL_static" value="4800"/>
     </block>
-    <block name="Cool down angle4">
-      <go wp="STDBY"/>
+    <block name="Cool down as staticas4cmd4ms0w0">
       <while cond="LessThan(NavBlockTime(),6)"/>
     </block>
-    <block name="Pitch reset0">
-      <set var="pitch_pref_deg" value="0.0"/>
-      <stay wp="STDBY"/>
+    <block name="Excitationas4cmd5ms0w0 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms0w0">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms0w0 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms0w0 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms0w0 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms0w0 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms0w0 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms0w0">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms0w0 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms0w0 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms0w0 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms0w0 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms0w0 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms0w0">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms0w0 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms0w0 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms0w0 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms0w0 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms0w0 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms0w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms0w0">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:1 and wing:0 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="6400"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :1 and wing:0 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms1w0 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms1w0 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms1w0 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms1w0 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms1w0 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms1w0">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms1w0 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms1w0 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms1w0 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms1w0 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms1w0 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms1w0">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms1w0 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms1w0 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms1w0 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms1w0 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms1w0 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms1w0">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms1w0 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms1w0 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms1w0 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms1w0 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms1w0 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms1w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms1w0">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:2 and wing:0 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="8533"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :2 and wing:0 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms2w0 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms2w0 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms2w0 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms2w0 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms2w0 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms2w0">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms2w0 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms2w0 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms2w0 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms2w0 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms2w0 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms2w0">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms2w0 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms2w0 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms2w0 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms2w0 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms2w0 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms2w0">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms2w0 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms2w0 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms2w0 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms2w0 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms2w0 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms2w0">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms2w0">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="mot reset0">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Rotating wing10">
+      <set var="wing_rotation.wing_angle_deg_sp" value="10.0"/>
+    </block>
+    <block name="Wait for wing10">
+      <while cond="LessThan(NavBlockTime(),10)"/>
+    </block>
+    <block name="Mot status:0 and wing:10 degs ">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+    </block>
+    <block name="Cool down mot status :0 and wing:10 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms0w10 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms0w10 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms0w10 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms0w10 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms0w10 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms0w10">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms0w10 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms0w10 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms0w10 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms0w10 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms0w10 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms0w10">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms0w10 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms0w10 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms0w10 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms0w10 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms0w10 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms0w10">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms0w10 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms0w10 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms0w10 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms0w10 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms0w10 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms0w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms0w10">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:1 and wing:10 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="6400"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :1 and wing:10 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms1w10 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms1w10 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms1w10 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms1w10 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms1w10 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms1w10">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms1w10 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms1w10 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms1w10 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms1w10 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms1w10 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms1w10">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms1w10 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms1w10 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms1w10 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms1w10 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms1w10 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms1w10">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms1w10 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms1w10 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms1w10 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms1w10 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms1w10 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms1w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms1w10">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:2 and wing:10 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="8533"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :2 and wing:10 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms2w10 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms2w10 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms2w10 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms2w10 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms2w10 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms2w10">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms2w10 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms2w10 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms2w10 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms2w10 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms2w10 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms2w10">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms2w10 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms2w10 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms2w10 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms2w10 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms2w10 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms2w10">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms2w10 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms2w10 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms2w10 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms2w10 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms2w10 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms2w10">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms2w10">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="mot reset10">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Rotating wing30">
+      <set var="wing_rotation.wing_angle_deg_sp" value="30.0"/>
+    </block>
+    <block name="Wait for wing30">
+      <while cond="LessThan(NavBlockTime(),10)"/>
+    </block>
+    <block name="Mot status:0 and wing:30 degs ">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+    </block>
+    <block name="Cool down mot status :0 and wing:30 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms0w30 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms0w30 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms0w30 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms0w30 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms0w30 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms0w30">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms0w30 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms0w30 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms0w30 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms0w30 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms0w30 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms0w30">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms0w30 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms0w30 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms0w30 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms0w30 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms0w30 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms0w30">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms0w30 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms0w30 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms0w30 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms0w30 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms0w30 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms0w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms0w30">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:1 and wing:30 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="6400"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :1 and wing:30 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms1w30 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms1w30 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms1w30 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms1w30 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms1w30 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms1w30">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms1w30 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms1w30 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms1w30 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms1w30 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms1w30 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms1w30">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms1w30 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms1w30 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms1w30 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms1w30 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms1w30 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms1w30">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms1w30 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms1w30 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms1w30 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms1w30 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms1w30 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms1w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms1w30">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:2 and wing:30 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="8533"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :2 and wing:30 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms2w30 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms2w30 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms2w30 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms2w30 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms2w30 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms2w30">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms2w30 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms2w30 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms2w30 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms2w30 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms2w30 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms2w30">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms2w30 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms2w30 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms2w30 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms2w30 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms2w30 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms2w30">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms2w30 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms2w30 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms2w30 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms2w30 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms2w30 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms2w30">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms2w30">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="mot reset30">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Rotating wing45">
+      <set var="wing_rotation.wing_angle_deg_sp" value="45.0"/>
+    </block>
+    <block name="Wait for wing45">
+      <while cond="LessThan(NavBlockTime(),10)"/>
+    </block>
+    <block name="Mot status:0 and wing:45 degs ">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+    </block>
+    <block name="Cool down mot status :0 and wing:45 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms0w45 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms0w45 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms0w45 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms0w45 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms0w45 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms0w45">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms0w45 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms0w45 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms0w45 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms0w45 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms0w45 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms0w45">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms0w45 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms0w45 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms0w45 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms0w45 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms0w45 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms0w45">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms0w45 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms0w45 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms0w45 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms0w45 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms0w45 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms0w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms0w45">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:1 and wing:45 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="6400"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :1 and wing:45 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms1w45 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms1w45 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms1w45 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms1w45 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms1w45 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms1w45">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms1w45 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms1w45 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms1w45 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms1w45 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms1w45 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms1w45">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms1w45 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms1w45 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms1w45 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms1w45 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms1w45 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms1w45">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms1w45 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms1w45 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms1w45 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms1w45 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms1w45 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms1w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms1w45">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:2 and wing:45 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="8533"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :2 and wing:45 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms2w45 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms2w45 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms2w45 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms2w45 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms2w45 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms2w45">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms2w45 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms2w45 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms2w45 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms2w45 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms2w45 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms2w45">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms2w45 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms2w45 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms2w45 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms2w45 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms2w45 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms2w45">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms2w45 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms2w45 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms2w45 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms2w45 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms2w45 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms2w45">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms2w45">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="mot reset45">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Rotating wing60">
+      <set var="wing_rotation.wing_angle_deg_sp" value="60.0"/>
+    </block>
+    <block name="Wait for wing60">
+      <while cond="LessThan(NavBlockTime(),10)"/>
+    </block>
+    <block name="Mot status:0 and wing:60 degs ">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+    </block>
+    <block name="Cool down mot status :0 and wing:60 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms0w60 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms0w60 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms0w60 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms0w60 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms0w60 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms0w60">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms0w60 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms0w60 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms0w60 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms0w60 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms0w60 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms0w60">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms0w60 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms0w60 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms0w60 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms0w60 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms0w60 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms0w60">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms0w60 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms0w60 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms0w60 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms0w60 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms0w60 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms0w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms0w60">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:1 and wing:60 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="6400"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :1 and wing:60 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms1w60 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms1w60 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms1w60 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms1w60 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms1w60 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms1w60">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms1w60 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms1w60 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms1w60 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms1w60 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms1w60 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms1w60">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms1w60 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms1w60 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms1w60 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms1w60 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms1w60 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms1w60">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms1w60 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms1w60 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms1w60 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms1w60 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms1w60 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms1w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms1w60">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:2 and wing:60 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="8533"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :2 and wing:60 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms2w60 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms2w60 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms2w60 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms2w60 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms2w60 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms2w60">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms2w60 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms2w60 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms2w60 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms2w60 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms2w60 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms2w60">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms2w60 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms2w60 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms2w60 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms2w60 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms2w60 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms2w60">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms2w60 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms2w60 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms2w60 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms2w60 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms2w60 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms2w60">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms2w60">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="mot reset60">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Rotating wing75">
+      <set var="wing_rotation.wing_angle_deg_sp" value="75.0"/>
+    </block>
+    <block name="Wait for wing75">
+      <while cond="LessThan(NavBlockTime(),10)"/>
+    </block>
+    <block name="Mot status:0 and wing:75 degs ">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+    </block>
+    <block name="Cool down mot status :0 and wing:75 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms0w75 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms0w75 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms0w75 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms0w75 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms0w75 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms0w75">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms0w75 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms0w75 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms0w75 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms0w75 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms0w75 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms0w75">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms0w75 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms0w75 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms0w75 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms0w75 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms0w75 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms0w75">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms0w75 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms0w75 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms0w75 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms0w75 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms0w75 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms0w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms0w75">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:1 and wing:75 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="6400"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :1 and wing:75 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms1w75 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms1w75 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms1w75 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms1w75 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms1w75 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms1w75">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms1w75 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms1w75 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms1w75 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms1w75 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms1w75 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms1w75">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms1w75 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms1w75 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms1w75 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms1w75 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms1w75 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms1w75">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms1w75 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms1w75 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms1w75 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms1w75 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms1w75 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms1w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms1w75">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:2 and wing:75 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="8533"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :2 and wing:75 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms2w75 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms2w75 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms2w75 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms2w75 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms2w75 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms2w75">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms2w75 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms2w75 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms2w75 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms2w75 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms2w75 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms2w75">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms2w75 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms2w75 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms2w75 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms2w75 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms2w75 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms2w75">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms2w75 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms2w75 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms2w75 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms2w75 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms2w75 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms2w75">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms2w75">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="mot reset75">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Rotating wing90">
+      <set var="wing_rotation.wing_angle_deg_sp" value="90.0"/>
+    </block>
+    <block name="Wait for wing90">
+      <while cond="LessThan(NavBlockTime(),10)"/>
+    </block>
+    <block name="Mot status:0 and wing:90 degs ">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
+    </block>
+    <block name="Cool down mot status :0 and wing:90 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms0w90 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms0w90 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms0w90 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms0w90 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms0w90 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms0w90">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms0w90 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms0w90 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms0w90 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms0w90 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms0w90 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms0w90">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms0w90 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms0w90 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms0w90 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms0w90 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms0w90 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms0w90">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms0w90 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms0w90 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms0w90 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms0w90 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms0w90 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms0w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms0w90">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:1 and wing:90 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="6400"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :1 and wing:90 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms1w90 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms1w90 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms1w90 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms1w90 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms1w90 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms1w90">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms1w90 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms1w90 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms1w90 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms1w90 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms1w90 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms1w90">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms1w90 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms1w90 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms1w90 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms1w90 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms1w90 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms1w90">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms1w90 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms1w90 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms1w90 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms1w90 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms1w90 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms1w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms1w90">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Mot status:2 and wing:90 degs ">
+      <set var=" mot0_static" value="6400"/>
+      <set var=" mot1_static" value="6400"/>
+      <set var=" mot2_static" value="8533"/>
+      <set var=" mot3_static" value="6400"/>
+    </block>
+    <block name="Cool down mot status :2 and wing:90 degs ">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd1ms2w90 degs ">
+      <set var=" ailL_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd1ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd2ms2w90 degs ">
+      <set var=" ailL_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd2ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd3ms2w90 degs ">
+      <set var=" ailL_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas4cmd3ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd4ms2w90 degs ">
+      <set var=" ailL_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas4cmd4ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas4cmd5ms2w90 degs ">
+      <set var=" ailL_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas4cmd5ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas4ms2w90">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas5cmd1ms2w90 degs ">
+      <set var=" ailR_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd1ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd2ms2w90 degs ">
+      <set var=" ailR_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd2ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd3ms2w90 degs ">
+      <set var=" ailR_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas5cmd3ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd4ms2w90 degs ">
+      <set var=" ailR_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas5cmd4ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas5cmd5ms2w90 degs ">
+      <set var=" ailR_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas5cmd5ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas5ms2w90">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas6cmd1ms2w90 degs ">
+      <set var=" ele_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd1ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd2ms2w90 degs ">
+      <set var=" ele_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd2ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd3ms2w90 degs ">
+      <set var=" ele_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas6cmd3ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd4ms2w90 degs ">
+      <set var=" ele_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas6cmd4ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas6cmd5ms2w90 degs ">
+      <set var=" ele_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas6cmd5ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas6ms2w90">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="Excitationas7cmd1ms2w90 degs ">
+      <set var=" rud_static" value="-9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd1ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd2ms2w90 degs ">
+      <set var=" rud_static" value="-4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd2ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd3ms2w90 degs ">
+      <set var=" rud_static" value="1920"/>
+    </block>
+    <block name="Cool down as staticas7cmd3ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd4ms2w90 degs ">
+      <set var=" rud_static" value="4800"/>
+    </block>
+    <block name="Cool down as staticas7cmd4ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="Excitationas7cmd5ms2w90 degs ">
+      <set var=" rud_static" value="9600"/>
+    </block>
+    <block name="Cool down as staticas7cmd5ms2w90">
+      <while cond="LessThan(NavBlockTime(),6)"/>
+    </block>
+    <block name="as resetas7ms2w90">
+      <set var=" ailL_static" value="0"/>
+      <set var=" ailR_static" value="0"/>
+      <set var=" ele_static" value="0"/>
+      <set var=" rud_static" value="0"/>
+    </block>
+    <block name="mot reset90">
+      <set var=" mot0_static" value="0"/>
+      <set var=" mot1_static" value="0"/>
+      <set var=" mot2_static" value="0"/>
+      <set var=" mot3_static" value="0"/>
       <exception cond="MoreThan(NavBlockTime(),6)" deroute="Standby"/>
     </block>
     <block name="land here" strip_button="Land Here" strip_icon="land-right.png">

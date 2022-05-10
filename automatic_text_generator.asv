@@ -53,12 +53,12 @@ while ischar(tline)
               if no_static
                   break
               end
-              mot_status_count = mot_status_count + 1;
-              line_50 = strcat('    <block name="Mot status:  ',num2str(mot_status_count,'%i'),' and wing:', num2str(wing_sp(k),'%.0f'),' degs ">');
+              mot_status_count =+ 1;
+              line_50 = strcat('    <block name="Mot status:  ',num2str(mot_status_count,'%.0f'),' and wing:', num2str(wing_sp(k),'%.0f'),' degs ">');
               line_51 = strcat('      <set var=" mot0_static" value="',num2str(mot_status(i,1),'%i'),'"/>');
-              line_52 = strcat('      <set var=" mot1_static" value="',num2str(mot_status(i,2),'%i'),'"/>');
-              line_53 = strcat('      <set var=" mot2_static" value="',num2str(mot_status(i,3),'%i'),'"/>');
-              line_54 = strcat('      <set var=" mot3_static" value="',num2str(mot_status(i,4),'%i'),'"/>');
+              line_52 = strcat('      <set var=" mot0_static" value="',num2str(mot_status(i,2),'%i'),'"/>');
+              line_53 = strcat('      <set var=" mot0_static" value="',num2str(mot_status(i,3),'%i'),'"/>');
+              line_54 = strcat('      <set var=" mot0_static" value="',num2str(mot_status(i,4),'%i'),'"/>');
               line_55 = strcat('    </block>');
               fprintf(fileID_1,'%s\r\n',line_50);
               fprintf(fileID_1,'%s\r\n',line_51);
@@ -67,15 +67,15 @@ while ischar(tline)
               fprintf(fileID_1,'%s\r\n',line_54);
               fprintf(fileID_1,'%s\r\n',line_55);
   
-              line_56 = strcat('    <block name="Cool down mot status :', num2str(mot_status_count,'%i'),' and wing:', num2str(wing_sp(k),'%.0f'),' degs ">');
+              line_56 = strcat('    <block name="Cool down mot status ', num2str(angle,'%.0f'),'">');
               line_57 = strcat('      <while cond="LessThan(NavBlockTime(),',num2str(round(cd_t)),')"/>');%'      <exception cond="stage_time>2" deroute="Standby"/>';
               line_57e= strcat('      <exception cond="MoreThan(NavBlockTime(),',num2str(round(cd_t)),')" deroute="Standby"/>');
               line_58 = strcat('    </block>');
-              line_59 = strcat('    <block name="mot reset ', num2str(wing_sp(k),'%.0f'),'">');
+              line_59 = strcat('    <block name="mot reset', num2str(wing_sp(k),'%.0f'),'">');
               line_60 = strcat('      <set var=" mot0_static" value="',num2str(mot_status(1,1),'%i'),'"/>');
-              line_61 = strcat('      <set var=" mot1_static" value="',num2str(mot_status(1,2),'%i'),'"/>');
-              line_62 = strcat('      <set var=" mot2_static" value="',num2str(mot_status(1,3),'%i'),'"/>');
-              line_63 = strcat('      <set var=" mot3_static" value="',num2str(mot_status(1,4),'%i'),'"/>');
+              line_61 = strcat('      <set var=" mot0_static" value="',num2str(mot_status(1,2),'%i'),'"/>');
+              line_62 = strcat('      <set var=" mot0_static" value="',num2str(mot_status(1,3),'%i'),'"/>');
+              line_63 = strcat('      <set var=" mot0_static" value="',num2str(mot_status(1,4),'%i'),'"/>');
               line_64 = strcat('    </block>');
               
               fprintf(fileID_1,'%s\r\n',line_56);
@@ -85,7 +85,7 @@ while ischar(tline)
                   
                   for e=1:size(as_static,2)
                       
-                      line_65 = strcat('    <block name="Excitation ','as',num2str(j,'%i'),'cmd',num2str(e,'%i'),'ms',num2str(mot_status_count,'%.0f'),'w',num2str(wing_sp(k),'%.0f'),' degs ">');
+                      line_65 = strcat('    <block name="Excitation ',num2str(j,'%i'),num2str(e,'%i'),num2str(mot_status_count,'%.0f'),num2str(wing_sp(k),'%.0f'),' degs ">');
                       switch(j-3)
                           case 1
                               line_66 = strcat('      <set var=" ailL_static" value="',num2str(as_static(e),'%i'),'"/>');
@@ -101,10 +101,10 @@ while ischar(tline)
                       fprintf(fileID_1,'%s\r\n',line_66);
                       fprintf(fileID_1,'%s\r\n',line_67);
           
-                      line_68 = strcat('    <block name="Cool down as static ','as', num2str(j,'%i'),'cmd',num2str(e,'%i'),'ms',num2str(mot_status_count,'%.0f'),'w',num2str(wing_sp(k),'%.0f'),'">');
+                      line_68 = strcat('    <block name="Cool down as static ', num2str(j,'%i'),num2str(e,'%i'),num2str(mot_status_count,'%.0f'),num2str(wing_sp(k),'%.0f'),'">');
                       line_69 = strcat('      <while cond="LessThan(NavBlockTime(),',num2str(round(cd_t)),')"/>');%'      <exception cond="stage_time>2" deroute="Standby"/>';
                       line_70 = strcat('    </block>');
-                      line_71 = strcat('    <block name="as reset ','as', num2str(j,'%i'),'ms',num2str(mot_status_count,'%.0f'),'w',num2str(wing_sp(k),'%.0f'),'">');
+                      line_71 = strcat('    <block name="as reset', num2str(j,'%i'),num2str(wing_sp(k),'%.0f'),'">');
                       line_72 = strcat('      <set var=" ailL_static" value="',num2str(0,'%i'),'"/>');
                       line_73 = strcat('      <set var=" ailR_static" value="',num2str(0,'%i'),'"/>');
                       line_74 = strcat('      <set var=" ele_static" value="',num2str(0,'%i'),'"/>');
@@ -116,11 +116,8 @@ while ischar(tline)
                       fprintf(fileID_1,'%s\r\n',line_70);
                       if e==size(as_static,2)
                           fprintf(fileID_1,'%s\r\n',line_71);
-                          fprintf(fileID_1,'%s\r\n',line_72);
-                          fprintf(fileID_1,'%s\r\n',line_73);
-                          fprintf(fileID_1,'%s\r\n',line_74);
-                          fprintf(fileID_1,'%s\r\n',line_75);
-                          fprintf(fileID_1,'%s\r\n',line_76);                     
+                          fprintf(fileID_1,'%s\r\n',line_69);
+                          fprintf(fileID_1,'%s\r\n',line_70);
                       end
 
                   end
@@ -132,7 +129,7 @@ while ischar(tline)
                   fprintf(fileID_1,'%s\r\n',line_61);
                   fprintf(fileID_1,'%s\r\n',line_62);
                   fprintf(fileID_1,'%s\r\n',line_63);
-                  %fprintf(fileID_1,'%s\r\n',line_64);
+                  fprintf(fileID_1,'%s\r\n',line_64);
                  
                   if no_chirp && no_doublet && no_angle && (k==size(wing_sp,2))
                       fprintf(fileID_1,'%s\r\n',line_57e);

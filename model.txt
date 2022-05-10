@@ -10,6 +10,7 @@
 #include "modules/rot_wing_drone/wing_rotation_controller.h"
 #include "firmwares/rotorcraft/navigation.h"
 #include "firmwares/rotorcraft/guidance/guidance_indi_hybrid.h"
+#include "firmwares/rotorcraft/stabilization/stabilization_indi.h"
 </header>
   <waypoints>
     <waypoint name="HOME" x="0.0" y="0.0" height="0.0"/>
