@@ -8,6 +8,8 @@
 #include "modules/system_identification/sys_id_chirp.h"
 #include "modules/system_identification/pprz_chirp.h"
 #include "modules/rot_wing_drone/wing_rotation_controller.h"
+#include "firmwares/rotorcraft/navigation.h"
+#include "firmwares/rotorcraft/guidance/guidance_indi_hybrid.h"
 </header>
   <waypoints>
     <waypoint name="HOME" x="0.0" y="0.0" height="0.0"/>

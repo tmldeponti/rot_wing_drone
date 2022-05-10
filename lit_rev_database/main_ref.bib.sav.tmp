@@ -1043,4 +1043,31 @@
   howpublished = {10th World Congress on Intelligent Control and Automation},
   title        = {Modeling and control for near-space vehicles with oblique wing},
   year         = {2012},
-  doi          = {10.1109/wcica.2012.6358
+  doi          = {10.1109/wcica.2012.6358164},
+  groups       = {oblique flying wing, OFW},
+  priority     = {prio1},
+  readstatus   = {read},
+}
+
+@Article{Simplicio2013,
+  author  = {P. Simplício and M. D. Pavel and E. van Kampen and Q. P. Chu},
+  journal = {Control Engineering Practice},
+  title   = {An acceleration measurements-based approach for helicopter nonlinear flight control using Incremental Nonlinear Dynamic Inversion},
+  year    = {2013},
+  issn    = {0967-0661},
+  pages   = {1065-1077},
+  volume  = {21},
+  doi     = {10.1016/j.conengprac.2013.03.009},
+  groups  = {INDI},
+}
+
+@InProceedings{Raab2018,
+  author    = {Stefan A. Raab and Jiannan Zhang and Pranav Bhardwaj and Florian Holzapfel},
+  booktitle = {2018 Applied Aerodynamics Conference},
+  title     = {Proposal of a Unified Control Strategy for Vertical Take-off and Landing Transition Aircraft Configurations},
+  year      = {2018},
+  month     = {jun},
+  publisher = {American Institute of Aeronautics and Astronautics},
+  doi       = {10.2514/6.2018-3478},
+  groups    = {wind disturbance rejection},
+  p
