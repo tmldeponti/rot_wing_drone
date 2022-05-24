@@ -30,7 +30,8 @@ classdef WTApril2022
             this.settings.apply_cal = apply_cal;
             
             file = 'test_log.csv';
-            folder = '/Users/tomasodeponti/Desktop/Flight data of VSQP/static_test_1605';
+            %folder = '/Users/tomasodeponti/Desktop/Flight data of VSQP/static_test_1605';
+            folder = 'C:\Users\Tomaso\Desktop\flight_data_VSQP\static_test_1605';
             this.folder = folder;
             
             file_path = fullfile(folder, file);
