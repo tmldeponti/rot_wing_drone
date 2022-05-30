@@ -1,4 +1,4 @@
-function [outputArg1,outputArg2] = plot_special(x,y,order,i)
+function [] = plot_special(x,y,order,i)
 %lin_plot Plot scatter data and best fit line based on the specified order
 % 
 pointer = ["o","*",".","+","x","p","h","d"];
