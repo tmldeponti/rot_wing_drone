@@ -14,13 +14,13 @@ x1 = linspace(min(x),max(x));
 y1 = linspace(min(y),max(y));
 [X,Y] = meshgrid(x1,y1);
 RMSE = 1000;
-case_list = ["poly 1","poly 2","poly 3","poly 4","poly 5"," sin(x) y","(sin(x) y)^2","(sin(x) y)^3","sin(x)+y","sin(x)^2+y^2","sin(x)^3+y^3"," sin(x) y+k","(sin(x) y)^2+k","(sin(x) y)^3+k","sin(x)+y+k","sin(x)^2+y^2+k","sin(x)^3+y^3+k"];
+case_list = ["poly 1","poly 2","poly 3","poly 4","poly 5"," sin(x) y","(sin(x) y)^2","(sin(x) y)^3","sin(x)+y","sin(x)^2+y^2","sin(x)^3+y^3"," sin(x) y+k","(sin(x) y)^2+k","(sin(x) y)^3+k","sin(x)+y+k","sin(x)^2+y^2+k","sin(x)^3+y^3+k","sin(x)^3 y^2","y^2"];
 best_case = 1;
-override = 0;
+override = 1;
 rmse_log = [];
-for j=1:17
+for j=1:19
     if override
-        i = 5;
+        i = 19;
     else
         i = j ;
     end
@@ -64,6 +64,15 @@ for j=1:17
             p = [sin(deg2rad(x)).^(i-14),y.^(i-14),ones(size(x))]\z;
             z_i = p(1).*sin(deg2rad(x)).^(i-14)+p(2).*y.^(i-14)+p(3);
             Z_i = p(1).*sin(deg2rad(X)).^(i-14)+p(2).*Y.^(i-14)+p(3);
+        case 18
+            p = [sin(deg2rad(x)).^3.*y.^(2)]\z;
+            z_i = p(1).*sin(deg2rad(x)).^(3).*y.^(2);
+            Z_i = p(1).*sin(deg2rad(X)).^(3).*Y.^(i-14);
+        case 19
+            p = [y.^(2)]\z;
+            z_i = p(1).*y.^(2);
+            Z_i = p(1).*Y.^(2);
+           
     end
     
     RMSE_i = rms((z-z_i)./z);
