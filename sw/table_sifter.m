@@ -8,7 +8,7 @@ function [output] = table_sifter(table,holes)
 n = max(size(holes));
 sifter = ones(size(table,1),1);
 for i=1:n
-    if holes(i)>=0
+    if holes(i)~=-1
         sifter = sifter.*(table.(i)==holes(i));
     end
 end

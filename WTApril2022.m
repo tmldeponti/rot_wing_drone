@@ -17,7 +17,7 @@ classdef WTApril2022
         notes
     end
     methods
-        function this = WTApril2022(meas_list, apply_cal)
+        function this = WTApril2022(meas_list, apply_cal,static_test)
             if nargin < 2
                 apply_cal = 0;
             end
@@ -30,8 +30,20 @@ classdef WTApril2022
             this.settings.apply_cal = apply_cal;
             
             file = 'test_log.csv';
-            %folder = '/Users/tomasodeponti/Desktop/Flight data of VSQP/static_test_1605';
-            folder = 'C:\Users\Tomaso\Desktop\flight_data_VSQP\static_test_1605';
+            switch static_test
+                case 1
+                    % First Static test
+                    %folder = '/Users/tomasodeponti/Desktop/Flight data of VSQP/static_test_1605';
+                    folder = 'C:\Users\Tomaso\Desktop\flight_data_VSQP\static_test_1605';
+                case 2
+                    % Second Static test
+                    %folder = '/Users/tomasodeponti/Desktop/Flight data of VSQP/static_test_1605';
+                    folder = 'C:\Users\Tomaso\Desktop\flight_data_VSQP\static_test_1805';
+                case 3
+                    % third Static test
+                    %folder = '/Users/tomasodeponti/Desktop/Flight data of VSQP/static_test_1605';
+                    folder = 'C:\Users\Tomaso\Desktop\flight_data_VSQP\static_test_1905'; 
+            end
             this.folder = folder;
             
             file_path = fullfile(folder, file);
