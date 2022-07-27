@@ -1130,6 +1130,26 @@
   groups    = {aerodynamic angles sensors},
 }
 
+@InProceedings{Mogorosi2021,
+  author    = {Tony Oliver Mogorosi and Rodrigo S. Jamisola and N. Subaschandar and Lucky Odirile Mohutsiwa},
+  booktitle = {2021 International Conference on Unmanned Aircraft Systems ({ICUAS})},
+  title     = {Thrust-to-Weight Ratio Optimization for Multi-Rotor Drones Using Neural Network with Six Input Parameters},
+  year      = {2021},
+  month     = {jun},
+  publisher = {{IEEE}},
+  doi       = {10.1109/icuas51884.2021.9476744},
+  groups    = {t_w_ratio},
+}
+
+@Article{tw1,
+  author  = {Gordon Ononiwu and Arinze Okoye and James Onojo and Nnaemeka Onuekwusi},
+  journal = {American Journal of Engineering Research},
+  title   = {Design and Implementation of a Real Time Wireless Quadcopterfor Rescue Operations},
+  year    = {2016},
+  doi     = {e-ISSN: 2320-0847},
+  groups  = {t_w_ratio},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: grouping:
@@ -1167,4 +1187,5 @@
 2 StaticGroup:wls\;0\;1\;0x8a8a8aff\;\;\;;
 1 StaticGroup:wind disturbance rejection\;0\;0\;0x8a8a8aff\;\;\;;
 1 StaticGroup:aerodynamic angles sensors\;0\;1\;0x8a8a8aff\;\;\;;
+1 StaticGroup:t_w_ratio\;0\;1\;0x8a8a8aff\;\;\;;
 }
