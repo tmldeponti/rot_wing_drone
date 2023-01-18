@@ -1,7 +1,6 @@
 clear all
-
-p = parselog('C:\Users\Tomaso\Desktop\flight_data_VSQP\17_24_32\17_24_32\80_01_09__03_22_34_SD.data');
-addpath(genpath('C:\Users\Tomaso\Desktop\Thesis\main\sw'))
+addpath(genpath(fullfile(pwd,'sw')))
+p = parselog(fullfile(fileparts(pwd),'Data\flight_data_VSQP\17_24_32\17_24_32\80_01_09__03_22_34_SD.data'));
 
 data = p.aircrafts.data.EFF_FULL_INDI;
 act = cellfun(@(S) sscanf(S, '%f,').', data.u, 'Uniform', 0);
