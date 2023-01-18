@@ -1,7 +1,0 @@
-Motor: T-motor MN3510 360 kv
-Kv: 360
-Propeller: MF1302R
-Diameter: 13.4
-Pitch: 4.8
-Battery: 4S
-Config: pusher

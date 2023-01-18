@@ -1,6 +1,0 @@
-Motor: T-motor MN3510 360 kv
-Kv: 360
-Propeller: APC 11x5.5 EP
-Diameter: 11
-Pitch: 5.5
-Battery: 4S

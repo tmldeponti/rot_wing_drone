@@ -1,6 +1,0 @@
-Motor: T-motor F80 Pro 1900 kv
-Kv: 1900
-Propeller: 7x4R
-Diameter: 7
-Pitch: 4
-Battery: 4S

@@ -1,8 +1,0 @@
-Motor: T-motor MN3510 360 kv
-Kv: 360
-Propeller: MF1302R with FW folding hub (check diameter!!)
-Diameter: 14.2
-Diam (meter): 0.362
-Pitch: 4.8
-Battery: 6S
-Config: pusher
