@@ -38,9 +38,8 @@ grid minor
 yline([-3,10],'--',{'min','max'})
 title("Pitch [deg]")
 lgd=legend('\theta','\theta_{ref}','location','northwest');
-lgd.ItemTokenSize = [10,8];
 % lgd.Layout.Tile = 6;
-ylim([-6 18]);
+ylim([-6 14]);
 xlim([230,295]);
 hold off
 %nexttile([1 1])
@@ -89,7 +88,7 @@ plot(data.timestamp,low_butter(data.airspeed,f_filter,sf,0,order))
 title("Airspeed [m/s]")
 ylim([0,20]);
 linkaxes([ax1,ax2,ax4,ax5,ax6],'x');
-xlim([230,295]);
+%xlim([230,295]);
 xlabel("Time [s]")
 grid on
 grid minor
