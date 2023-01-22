@@ -17,5 +17,6 @@ Here it is possible to find the scripts used to process the data, draw conclusio
 | database_generator         | Script to post process raw data  |
 | mot_effectiveness_vs_skew  | Script to analyse evolution of motor effectiveness with skew  |
 | plot_transition            | Script to analyse data from the transition test  |
-| rmse_log_actuators_paper   | Saved RMSE result of modelling of the Aerodynamic Surfaces |
+| rmse_log_all_actuators     | Saved RMSE result of modelling of the Aerodynamic Surfaces |
 | RSQP_EFF_V8                | Script to analyse doublets on motors and extract effectiveness  |
+| Automatic_skew_controller  | Script with optimization problem for the automatic skew controller|
