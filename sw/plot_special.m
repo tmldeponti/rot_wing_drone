@@ -168,5 +168,5 @@ rmse_log = [case_list(ranking);rmse_log];
 if fit_visible
     plot(x1,Z,'-','color',colors(ii,:))
 end
-title(case_list(best_case))
+%title(case_list(best_case))
 end
